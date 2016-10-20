@@ -1,0 +1,23 @@
+<div id="indexPage">
+
+  <div id="top">
+    <a href="#/friends/add" class="button">New Friend</a>
+    <!-- <input type="date" name="dobFilter" placeholder="Filter: Birthday"> -->
+  </div>
+
+  <div id="friendList">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th><th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="friend in friends">
+          <td>{{ friend['fname'] }} {{ friend['lname'] }}</td><td class="action"><a href="#/friends/{{ friend['_id'] }}" class="button">Show</a><a href="#/friends/{{ friend['_id'] }}/edit" class="button">Edit</a><a href="#/friends/{{ friend['_id'] }}/delete" class="button">Delete</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

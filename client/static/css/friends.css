@@ -1,0 +1,125 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html{
+  font-size: 14px;
+  line-height: 20px;
+}
+body{
+  margin: auto;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+header{
+  text-align: center;
+  background-color: rgb(0, 134, 206);
+  color: white;
+  margin: 0 0 2vh 0;
+}
+  header > h1{
+    font-size: 200%;
+    line-height: 150%;
+  }
+
+main{
+  width: 70%;
+  margin: auto;
+}
+
+.button{
+  text-decoration: none;
+  color: white;
+  font-size: 110%;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  background-color: rgb(0, 134, 206);
+  border: 2px outset rgb(0, 134, 206);
+  border-top-style: none;
+  border-left-style: none;
+  padding: 0.5vh 1vw;
+  border-radius: 0.5vw;
+}
+
+#indexPage{
+}
+  #indexPage #top{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2vh;
+  }
+  #indexPage #friendList table{
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+  }
+    #indexPage #friendList table th{
+      border: 1px solid rgb(0, 134, 206);
+      background-color: rgb(0, 134, 206);
+      color: white;
+      padding: 1vh 0;
+      font-size: 130%;
+    }
+    #indexPage #friendList table td{
+      border: 1px solid rgb(0, 134, 206);
+      text-align: center;
+      padding: 1vh 0;
+    }
+      .action > a:nth-of-type(2){
+        margin: 0 20%;
+      }
+
+.friendForm{
+  border: 1px solid rgb(0, 134, 206);
+  padding: 1vh 2vw;
+  width: 60%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+  .friendForm label,
+  .friendForm datepicker{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1vh 3vw;
+    margin-bottom: 2vh;
+  }
+    .friendForm label input,
+    .friendForm datepicker input{
+      width: 70%;
+      line-height: 150%;
+      padding: 0 1vw;
+    }
+
+.readOnly{
+}
+  .readOnly label,
+  .readOnly datepicker{
+    background-color: rgb(0, 134, 206);
+    color: white;
+  }
+    .readOnly label input,
+    .readOnly datepicker input{
+      text-align: center;
+      background-color: lightgray;
+      font-weight: bold;
+    }
+
+.formHeader{
+  text-align: center;
+  margin: 2vh 0;
+  color: rgb(0, 134, 206);
+}
+
+#buttons{
+  display: flex;
+  justify-content: space-between;
+  background: white;
+}

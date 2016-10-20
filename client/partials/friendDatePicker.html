@@ -1,0 +1,32 @@
+<form class="friendForm {{ form['class'] }}">
+
+  <h2 class="formHeader">{{ form['header'] }}</h2>
+
+  <label>
+    First Name: <input type="text" value="{{ form['fname'] }}" ng-model="form.fname" ng-readonly="form['class']">
+  </label>
+
+  <label>
+    Last Name: <input type="text" value="{{ form['lname'] }}" ng-model="form.lname" ng-readonly="form['class']">
+  </label>
+
+  <!-- https://github.com/720kb/angular-datepicker -->
+  <datepicker ng-show="form['class']" date-format="dd-MM-yyyy" datepicker-toggle="false" datepicker-show="false" date-set="{{ form['dob'] }}">
+    Birthday: <input type="text" ng-readonly="form['class']">
+  </datepicker>
+
+  <datepicker ng-hide="form['class']" date-format="dd-MM-yyyy">
+    Birthday: <input type="text" ng-model="form['dob']">
+  </datepicker>
+
+  <label ng-show="form['class']">
+    Date Added: <input type="text" value="{{ form['createdAt'] }}" ng-model="form['createdAt']" ng-readonly="form['class']">
+  </label>
+
+  <label id="buttons">
+    <a href="#/friends" class="button">Home</a>
+    <input type="submit" value="{{ form['buttonText'] }}" ng-click="formSubmit()" class="button" ng-hide="form['class']">
+  </label>
+
+
+</form>
