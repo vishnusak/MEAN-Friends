@@ -7,15 +7,15 @@ app.config(function($routeProvider){
     controller: 'indexController'
   })
   .when('/friends/add', {
-    templateUrl: '../../partials/friendDatePicker.html',
+    templateUrl: '../../partials/friendSelectDate.html',
     controller: 'addController'
   })
   .when('/friends/:id', {
-    templateUrl: '../../partials/friendDatePicker.html',
+    templateUrl: '../../partials/friendSelectDate.html',
     controller: 'showController'
   })
   .when('/friends/:id/edit', {
-    templateUrl: '../../partials/friendDatePicker.html',
+    templateUrl: '../../partials/friendSelectDate.html',
     controller: 'editController'
   })
   .when('/friends/:id/delete', {
