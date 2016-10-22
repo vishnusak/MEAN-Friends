@@ -1,0 +1,42 @@
+<form class="friendForm {{ form['class'] }}">
+
+  <h2 class="formHeader">{{ form['header'] }}</h2>
+
+  <label>
+    First Name: <input type="text" value="{{ form['fname'] }}" ng-model="form['fname']" ng-readonly="form['class']">
+  </label>
+  <p ng-show="form['error']['fname']">{{ form['error']['fname'] }}</p>
+
+  <label>
+    Last Name: <input type="text" value="{{ form['lname'] }}" ng-model="form['lname']" ng-readonly="form['class']">
+  </label>
+  <p ng-show="form['error']['lname']">{{ form['error']['lname'] }}</p>
+
+  <label ng-hide="form['class']">
+    Birthday:
+    <label>
+      <span>Y :</span><select ng-options="year for year in years" ng-model="form['dob']['year']" ng-change="getMonths(form['dob']['year'])">
+      </select>
+
+      <span ng-hide="form['dob']['year'] == ''">M :</span><select ng-options="month for month in months" ng-model="form['dob']['month']" ng-hide="form['dob']['year'] == ''" ng-change="getDays(form['dob']['year'], form['dob']['month'])"></select>
+
+      <span ng-hide="form['dob']['year'] == '' || form['dob']['month'] == ''">D :</span><select ng-options="day for day in days" ng-model="form['dob']['day']" ng-hide="form['dob']['year'] == '' || form['dob']['month'] == ''"></select>
+    </label>
+  </label>
+  <p ng-show="form['error']['dob']">{{ form['error']['dob'] }}</p>
+
+  <label ng-show="form['class']">
+    Birthday: <input type="text" value="{{ form['dob'] }}" ng-readonly="form['class']">
+  </label>
+
+  <label ng-show="form['class']">
+    Date Added: <input type="text" value="{{ form['createdAt'] }}" ng-readonly="form['class']">
+  </label>
+
+  <label id="buttons">
+    <a href="#/friends" class="button">Home</a>
+    <input type="submit" value="{{ form['buttonText'] }}" ng-click="formSubmit()" class="button" ng-hide="form['class']">
+  </label>
+
+
+</form>

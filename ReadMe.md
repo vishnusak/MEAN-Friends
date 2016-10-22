@@ -17,9 +17,12 @@
   Feature | Description          | File Location
   --------|----------------------|--------------
   INDEX   | Show List of Friends | `/client/partials/index.html`
-  SHOW    | Show Friend Detail   | `/client/partials/friendDatePicker.html`
-  ADD     | Add New Friend       | `/client/partials/friendDatePicker.html`
-  EDIT    | Edit Friend Details  | `/client/partials/friendDatePicker.html`
+  ~~SHOW~~    | ~~Show Friend Detail~~   | ~~`/client/partials/friendDatePicker.html`~~
+  SHOW    | Show Friend Detail   | `/client/partials/friendSelectDate.html`
+  ~~ADD~~     | ~~Add New Friend~~       | ~~`/client/partials/friendDatePicker.html`~~
+  ADD     | Add New Friend       | `/client/partials/friendSelectDate.html`
+  ~~EDIT~~    | ~~Edit Friend Details~~  | ~~`/client/partials/friendDatePicker.html`~~
+  EDIT    | Edit Friend Details  | `/client/partials/friendSelectDate.html`
   DELETE  | Delete a Friend      | `/client/partials/index.html`
 
 ## DB Schema
@@ -44,15 +47,18 @@
   Server | mongoose             | 4.6.4   | mongoDB driver API
   Client | angular              | 1.5.8   | front-end framework
   Client | angular-route        | 1.5.8   | angular plug-in for routing
-  Client | angularjs-datepicker | 2.1.6   | angular plug-in for using date-picker
+  ~~Client~~ | ~~angularjs-datepicker~~ | ~~2.1.6~~   | ~~angular plug-in for using date-picker~~
 
 #### Notes
 
-  - Used the _[angularjs-datepicker](https://github.com/g00fy-/angular-datepicker)_ plug-in since the native html date element had a few drawbacks.
-    - `<input type="date">` is not supported on Firefox.
-    - Support on other browsers is very basic. Doesn't allow setting default values very easily
-    - Handling the date input was becoming problematic
-    - _This datepicker is a bit wonky in Firefox in terms of styling/alignment but functionality-wise seems to be A-Ok_
+  - ~~Used the _[angularjs-datepicker](https://github.com/g00fy-/angular-datepicker)_ plug-in since the native html date element had a few drawbacks.~~
+    - ~~`<input type="date">` is not supported on Firefox.~~
+    - ~~Support on other browsers is very basic. Doesn't allow setting default values very easily~~
+    - ~~Handling the date input was becoming problematic~~
+    - ~~_This datepicker is a bit wonky in Firefox in terms of styling/alignment but functionality-wise seems to be A-Ok_~~
+
+  - Replaced the date-picker plug-in with _select_ html elements, one each for year , month and day.
+    - Am handling the date conversion within the controllers after receiving the values from the front-end
 
   - Haven't implemented the __filter: Date__ feature shown in the wireframe (on the index page). Not sure what it is supposed to filter.
 

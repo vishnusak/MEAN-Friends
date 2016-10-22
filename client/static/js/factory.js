@@ -21,10 +21,77 @@ app.factory('friendsFactory', ['$http', function($http){
     this.delete = function(id, callback){
       deleteFriendOnServer(id, callback)
     }
+
+    this.getYears = function(){
+      return years
+    }
+
+    this.getMonths = function(year){
+      var monthList = [],
+          lastMonthInList = '',
+          dateNow = new Date(),
+          curYear = dateNow.getFullYear(),
+          curMon  = dateNow.toDateString().replace(/\u200E/g, '').substring(4, 7)
+
+      if (year === curYear){ lastMonthInList = curMon }
+
+      for (mon in months){
+        monthList.push(mon)
+        if (mon === lastMonthInList){ break }
+      }
+
+      return monthList
+    }
+
+    this.getDaysForMonth = function(year, month){
+      var dayList = [],
+          days    = 0,
+          dateNow = new Date(),
+          curYear = dateNow.getFullYear(),
+          curMon  = dateNow.toDateString().replace(/\u200E/g, '').substring(4, 7),
+          curDay  = dateNow.getDate()
+
+      if (month == 'Feb'){
+        days = (isLeap(year) ? 28 : 27)
+      } else if((year === curYear) && (month === curMon)){
+        days = curDay
+      } else {
+        days = months[month]
+      }
+
+      for (let i = 1; i <= days; i++){
+        dayList.push(i)
+      }
+
+      return dayList
+    }
+
   }
 
 // ------------------------------------------------------------
     // All private methods, variables go here:
+    var years  = [],
+        months = { Jan: 31, Feb: 27, Mar: 31, Apr: 30, May: 31, Jun: 30, July: 31, Aug: 31, Sep: 30, Oct: 31, Nov: 30, Dec: 31 },
+    // toLocaleDateString will give current date in mm/dd/yyyy format
+    // The replace(/\u200E/g, '') is to remove the non-visible hex character 8206 inserted into the date string in MS Edge. Not sure why it is inserted and what that characrter is.
+    //refer:  http://stackoverflow.com/questions/32099053/microsoft-edge-javascript-tolocaletimestring-incorrect-spacing
+        curDate= new Date().toLocaleDateString().replace(/\u200E/g, ''),
+        curMM  = Number(curDate.substring(0, 2)),
+        curDD  = Number(curDate.substring(3, 5)),
+        curYYYY= Number(curDate.substring(6))
+
+    for (let i = 0; i < 150; i++){
+      years.push(curYYYY)
+      curYYYY -= 1
+    }
+
+    function isLeap(year){
+      if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)){
+          return true
+      } else {
+          return false
+      }
+    }
 
     function getAllDataFromServer(callback){
       $http({

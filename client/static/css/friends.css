@@ -83,30 +83,51 @@ main{
   flex-direction: column;
   justify-content: space-between;
 }
-  .friendForm label,
-  .friendForm datepicker{
+  .friendForm > label{
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1vh 3vw;
     margin-bottom: 2vh;
   }
-    .friendForm label input,
-    .friendForm datepicker input{
+    .friendForm > label > input{
       width: 70%;
       line-height: 150%;
       padding: 0 1vw;
     }
+    .friendForm > label > label{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 70%;
+    }
+      .friendForm > label > label > select{
+        padding: 0.05vh 0;
+        width: 100%;
+        text-align: center;
+      }
+      .friendForm > label > label > span{
+        max-width: 25%;
+        width: 25%;
+        text-align: center;
+        background-color: rgb(0, 134, 206);
+        color: white;
+      }
+  .friendForm > p{
+    text-align: left;
+    font-style: italic;
+    padding: 0 3vw;
+    margin-bottom: 2vh;
+    color: red;
+  }
 
 .readOnly{
 }
-  .readOnly label,
-  .readOnly datepicker{
+  .readOnly > label{
     background-color: rgb(0, 134, 206);
     color: white;
   }
-    .readOnly label input,
-    .readOnly datepicker input{
+    .readOnly > label input{
       text-align: center;
       background-color: lightgray;
       font-weight: bold;
